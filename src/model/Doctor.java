@@ -38,6 +38,12 @@ public class Doctor extends User{
         return super.toString() + "\nSpeciality: " + speciality + "\nAvailable: " + availableAppointments.toString();
     }
 
+    @Override
+    public void showDataUser() {
+        System.out.println("Hospital: Cruz Roja");
+        System.out.println("Departamento: Cardiología");
+    }
+
     public static class AvailableAppointment{ //Clase para agendar citas
         private int id;
         private Date date;

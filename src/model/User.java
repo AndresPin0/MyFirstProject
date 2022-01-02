@@ -1,6 +1,7 @@
 package model;
+//Esta clase ya no puede ser instanciada, solo para darle algún comportamiento
 
-public class User {
+public abstract class User {
     private int id;
     private String name;
     private String email;
@@ -61,4 +62,8 @@ public class User {
         return "model.User: " + name + "\nEmail: " + email +
                 "\nAddress: " + address + ".\nPhone: " + phoneNumber;
     }
+
+    public abstract void showDataUser();//Info sobre los usuarios
+
+
 }

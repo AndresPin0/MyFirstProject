@@ -23,6 +23,19 @@ public class Main {
         myDoctor.addAvailableAppointment(new Date(), "1pm");
 
         System.out.println(myDoctor);
+
+        User user = new Doctor("Anahi", "ana@ama.com");
+        user.showDataUser();
+
+        User userPa = new Patient("Ansai", "ana@ama.com");
+        userPa.showDataUser();
+
+        User user2 = new User("Andres", "andres@pino.com") {
+            @Override
+            public void showDataUser() {
+
+            }
+        }
         /*
 
         for (model.Doctor.AvailableAppointment availableAppointment: myDoctor.getAvailableAppointments()){
