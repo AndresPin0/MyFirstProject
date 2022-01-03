@@ -35,7 +35,7 @@ public class Main {
             public void showDataUser() {
 
             }
-        }
+        };
         /*
 
         for (model.Doctor.AvailableAppointment availableAppointment: myDoctor.getAvailableAppointments()){
