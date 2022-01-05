@@ -6,13 +6,13 @@ import java.util.*;
 public class Doctor extends User{
     //Atributos
     private String speciality;
-
+    private ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
 
     //AvailableAppointment
 
     public Doctor(String name, String email){
         super(name, email);
-        System.out.println("El nombre del doctor asignado es: " + name);
+        //System.out.println("El nombre del doctor asignado es: " + name);
         this.speciality = speciality;
     }
 
@@ -25,7 +25,6 @@ public class Doctor extends User{
     }
 //Comportamientos
 
-    ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
     public void addAvailableAppointment(String date, String time){
         availableAppointments.add(new Doctor.AvailableAppointment(date, time)); //Método para agregar nuevas citas, que se acumulan en el array
 
@@ -69,11 +68,11 @@ public class Doctor extends User{
             this.id = id;
         }
 
-        public Date getDate() {
+        public Date getDate(String DATE) {
             return date;
         }
 
-        public String getDate(String DATE){
+        public String getDate(){
             return format.format(date);
         }
 

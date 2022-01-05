@@ -2,11 +2,14 @@ package model;
 
 import java.util.*;
 
+import static ui.UIMenu.*;
+
 public class Main {
     public static void main(String[] args) {
 
-        //showMenu(); //Forma resumida de llamar un método
-
+        showMenu(); //Forma resumida de llamar un método
+    }
+        /*
         int i = 0;
         int b = 2;
         b = i;
@@ -17,10 +20,6 @@ public class Main {
 
         Patient patient = new Patient("Alejandra", "alejandra@gmail.com");
         Patient patient2 = new Patient("Alexandra", "alexandra@gmail.com");
-
-        myDoctor.addAvailableAppointment(new Date(), "4pm");
-        myDoctor.addAvailableAppointment(new Date(), "6am");
-        myDoctor.addAvailableAppointment(new Date(), "1pm");
 
         System.out.println(myDoctor);
 
@@ -54,12 +53,12 @@ public class Main {
         //ISchedulable iSchedulable1 = new AppointmentDoctor();
 
         //ISchedulable.schedule(); //Al pasarle los parametros, se ejecutará la línea de arriba
-        /*
+
 
         for (model.Doctor.AvailableAppointment availableAppointment: myDoctor.getAvailableAppointments()){
             System.out.println(availableAppointment.getDate() + " " + availableAppointment.getTime());
-        }*/
+        }
 
         System.out.println(patient); //Aquí se llama automaticamente el toString()
-    }
+        */
 }

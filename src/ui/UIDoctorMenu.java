@@ -12,7 +12,7 @@ public class UIDoctorMenu {
         do {
             System.out.println("\n\n");
             System.out.println("Doctor");
-            System.out.println("Welcome" + UIMenu.doctorLogged.getName());
+            System.out.println("Welcome " + UIMenu.doctorLogged.getName());
             System.out.println("1. Add available appointment");
             System.out.println("2. My schedule appointment");
             System.out.println("0. Log out");
@@ -21,6 +21,7 @@ public class UIDoctorMenu {
 
             switch (response){
                 case 1:
+                    addAvailableAppointment();
                     break;
                 case 2:
                     break;
@@ -47,7 +48,7 @@ public class UIDoctorMenu {
 
             if(response > 0 && response <4){
                 int monthSelected = response;
-                System.out.println(response + " . " + UIMenu.MONTHS[monthSelected]);
+                System.out.println(response + " . " + UIMenu.MONTHS[monthSelected-1]);
                 System.out.println("Insert the date available [dd/mm/yyyy]");
                 String date = sc.nextLine();
 

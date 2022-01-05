@@ -2,7 +2,6 @@ package ui;
 
 import model.Doctor;
 import model.Patient;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -99,6 +98,7 @@ public class UIMenu {
                         //Obtener los datos del usuario logueado
                         doctorLogged = d;
                         //showDoctorMenu
+                        UIDoctorMenu.showDoctorMenu();
 
                     }
                 }
@@ -111,6 +111,7 @@ public class UIMenu {
                         //Obtener los datos del usuario logueado
                         patientLogged = p;
                         //showPatientMenu
+
                     }
                 }
             }
