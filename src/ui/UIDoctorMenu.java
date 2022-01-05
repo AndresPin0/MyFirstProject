@@ -37,7 +37,7 @@ public class UIDoctorMenu {
         int response = 0;
         do{
             System.out.println("\n:: Add available appointment");
-            System.out.println(":: Select amount");
+            System.out.println(":: Select a month");
             for (int i = 0; i < 3; i++){
                 int numMonths = i + 1;
                 System.out.println(numMonths + " . " + UIMenu.MONTHS[i]);

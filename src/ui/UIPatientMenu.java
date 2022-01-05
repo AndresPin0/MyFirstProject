@@ -2,6 +2,7 @@ package ui;
 
 import model.Doctor;
 
+import java.rmi.server.UID;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
@@ -13,7 +14,7 @@ public class UIPatientMenu {
         do {
             System.out.println("\n\n");
             System.out.println("Patient");
-            System.out.println("Welcome: " + UIMenu.patientLogged);
+            System.out.println("Welcome: " + UIMenu.patientLogged.getName());
             System.out.println("1. Book an appointment");
             System.out.println("2. My Appointments");
             System.out.println("0. Log out");
@@ -22,8 +23,10 @@ public class UIPatientMenu {
             response = Integer.valueOf(sc.nextLine());
             switch (response){
                 case 1:
+                    showBookAppointmentMenu();
                     break;
                 case 2:
+                    showPatientMyAppointments();
                     break;
                 case 0:
                     UIMenu.showMenu();
@@ -49,13 +52,13 @@ public class UIPatientMenu {
             for(int i = 0; i < UIDoctorMenu.doctorsAvailableAppointments.size(); i++){
                 ArrayList<Doctor.AvailableAppointment> availableAppointments = UIDoctorMenu.doctorsAvailableAppointments.get(i).getAvailableAppointments();
 
-                Map<Integer, Doctor> doctorAppointment = new TreeMap<>();
+                Map<Integer, Doctor> doctorAppointments = new TreeMap<>();
 
                 for(int j = 0; j < availableAppointments.size(); j++){
                     k++;
                     System.out.println(k + ". " + availableAppointments.get(j).getDate());
-                    doctorAppointment.put(Integer.valueOf(j), UIDoctorMenu.doctorsAvailableAppointments.get(i)); //Para manipular la salida a los usuarios
-                    doctors.put(Integer.valueOf(k), doctorAppointment);
+                    doctorAppointments.put(Integer.valueOf(j), UIDoctorMenu.doctorsAvailableAppointments.get(i)); //Para manipular la salida a los usuarios
+                    doctors.put(Integer.valueOf(k), doctorAppointments);
                 }
             }
             Scanner sc = new Scanner(System.in);
@@ -74,10 +77,31 @@ public class UIPatientMenu {
             System.out.println("Confirm your appointment: \n1. Yes \n2. Change Data");
             response = Integer.valueOf(sc.nextLine());
 
-            if (response )
-
-
-
+            if (response == 1){
+                UIMenu.patientLogged.addAppointmentDoctors(doctorSelected, doctorSelected.getAvailableAppointments().get(indexDate).getDate(null),
+                        doctorSelected.getAvailableAppointments().get(indexDate).getTime());
+                showPatientMenu();
+            }
         }while(response != 0);
+    }
+
+    private static void showPatientMyAppointments(){
+        int response = 0;
+        do {
+            System.out.println(":: My Appointments");
+            if(UIMenu.patientLogged.getAppointmentDoctors().size() ==0){
+                System.out.println("Don't have appointments");
+                break;
+            }
+
+            for(int i = 0; i <UIMenu.patientLogged.getAppointmentDoctors().size(); i++ ){
+                int j = i + 1;
+                System.out.println(j + ". " +
+                        "\nDate: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getDate() +
+                        "\nTime: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getTime() +
+                        "\nDoctor: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getDoctor().getName());
+            }
+            System.out.println("0. Log out");
+        }while (response != 0);
     }
 }

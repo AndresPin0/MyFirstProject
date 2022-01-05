@@ -9,8 +9,10 @@ public class Patient extends User{
     private double weight;
     private double height;
     private String blood;
+
     private ArrayList<AppointmentDoctor> appointmentDoctors = new ArrayList<>();
     private ArrayList<AppointmentNurse> appointmentNurses = new ArrayList<>();
+
 
    public Patient(String name, String email){
         super(name, email); //Al metodo constructor de la clase user
@@ -23,6 +25,8 @@ public class Patient extends User{
 
     public void addAppointmentDoctors(Doctor doctor, Date date, String time) {
         AppointmentDoctor appointmentDoctor = new AppointmentDoctor(this, doctor);
+        appointmentDoctor.schedule(date, time);
+        appointmentDoctors.add(appointmentDoctor);
    }
 
     public ArrayList<AppointmentNurse> getAppointmentNurses() {
